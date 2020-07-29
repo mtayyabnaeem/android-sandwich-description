@@ -13,6 +13,8 @@ import com.udacity.sandwichclub.utils.JsonUtils;
 
 import org.json.JSONException;
 
+import java.util.List;
+
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -75,10 +77,35 @@ public class DetailActivity extends AppCompatActivity {
         getDescription.setText(sandwich.getDescription());
         getOrigin.setText(sandwich.getPlaceOfOrigin());
 
-
+        displayList(getAlsoKnownAs,sandwich.getAlsoKnownAs());
+        displayList(ingredientsTv,sandwich.getIngredients());
 
     }
 
 
+    /**
+     * This displayList method use two input parameters; i.e. textview and the list of type String
+     * @param textView
+     * @param extractedListString
+     * @precondition
+     * extractedListString != null;
+     * @postcondition
+     * append textView to extractedListString
+     */
+    public void displayList(TextView textView, List<String> extractedListString){
+        // n <- extractedListString.size
+        int n = extractedListString.size();
+        if(n == 0)
+            textView.append("no info"); // when there is no data in extracted string.
+        for(int i = 0; i < n; i++){
+            if(i == n - 1){
+                textView.append(extractedListString.get(i));
+            }else {
+                textView.append(extractedListString.get(i) + ", ");
+            }
+
+        }
+
+    }
 
 }
