@@ -48,7 +48,6 @@ public class DetailActivity extends AppCompatActivity {
 
         String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
         String json = sandwiches[position];
-        Sandwich sandwich = null;
         try {
             sandwich = JsonUtils.parseSandwichJson(json);
         } catch (JSONException e) {
@@ -73,6 +72,10 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI() {
+        getDescription.setText(sandwich.getDescription());
+        getOrigin.setText(sandwich.getPlaceOfOrigin());
+
+
 
     }
 
