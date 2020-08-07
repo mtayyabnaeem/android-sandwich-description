@@ -1,4 +1,4 @@
-# Sandwich Club Project Starter Code
+# Sandwich Description
 
 ## Description
 App displays a scrollable list of a variety of sandwiches. 
